@@ -1,18 +1,19 @@
 import pathlib
 import pytest
-
 from aoc import solver
+from sys import gettrace
 
 
 here = pathlib.Path(__file__).parent
 input_files = sorted(here.glob("20*/*/*.txt"))
+timeout = 0 if "pydevd" in gettrace().__repr__() else 60  # no timeout if debugging
 
 
 def get_id(input_file):
     return input_file.read_text().splitlines()[0] + f"_{input_file.stem[1:]}"
 
 
-# @pytest.mark.timeout(60)
+@pytest.mark.timeout(timeout)
 @pytest.mark.parametrize("input_file", input_files, ids=get_id)
 def test_example(input_file, request):
     # GIVEN
@@ -31,16 +32,17 @@ def test_example(input_file, request):
         day9.PREAMBLE_LEN = 5
 
     # WHEN
+    skip_part1, skip_part2 = part1_answer.startswith("-"), part2_answer.startswith("-")
     part1, part2 = solver(
         year,
         day,
         input_data,
-        skip_part1=part1_answer == "-",
-        skip_part2=part2_answer == "-"
+        skip_part1=skip_part1,
+        skip_part2=skip_part2
     )
 
     # THEN
-    if part1_answer != "-":
+    if not skip_part1:
         assert str(part1) == part1_answer
-    if part2_answer != "-":
+    if not skip_part2:
         assert str(part2) == part2_answer
