@@ -6,7 +6,7 @@ from sys import gettrace
 
 here = pathlib.Path(__file__).parent
 input_files = sorted(here.glob("20*/*/*.txt"))
-timeout = 0 if "pydevd" in gettrace().__repr__() else 60  # no timeout if debugging
+timeout = 0 if "pydevd" in gettrace().__repr__() else 10  # no timeout if debugging
 
 
 def get_id(input_file):
