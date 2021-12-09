@@ -21,9 +21,13 @@ def parse_line_segments(lines_raw: List[str]) -> List[Tuple[Point, Point]]:
     return line_segments
 
 
-def generate_points(lines: List[Tuple[Point, Point]]) -> Tuple[List[Point], List[Point], List[Point]]:
+def generate_points(
+    lines: List[Tuple[Point, Point]]
+) -> Tuple[List[Point], List[Point], List[Point]]:
     """returns 3-tuple of list of generated points for vertical, horizontal, diagonal lines"""
-    diagonal_lines = list(filter(lambda l: abs(l[0].x - l[1].x) == abs(l[0].y - l[1].y), lines))
+    diagonal_lines = list(
+        filter(lambda l: abs(l[0].x - l[1].x) == abs(l[0].y - l[1].y), lines)
+    )
     vertical_lines = list(filter(lambda l: l[0].x == l[1].x, lines))
     horizontal_lines = list(filter(lambda l: l[0].y == l[1].y, lines))
     vertical_points = []
@@ -35,25 +39,33 @@ def generate_points(lines: List[Tuple[Point, Point]]) -> Tuple[List[Point], List
             start, end = p1, p2
         else:
             start, end = p2, p1
-        vertical_points.extend(Point(start.x, start.y + o) for o in range(end.y - start.y + 1))
+        vertical_points.extend(
+            Point(start.x, start.y + o) for o in range(end.y - start.y + 1)
+        )
     for line in horizontal_lines:
         p1, p2 = line
         if p1.x < p2.x:
             start, end = p1, p2
         else:
             start, end = p2, p1
-        horizontal_points.extend(Point(start.x + o, start.y) for o in range(end.x - start.x + 1))
+        horizontal_points.extend(
+            Point(start.x + o, start.y) for o in range(end.x - start.x + 1)
+        )
     for line in diagonal_lines:
         p1, p2 = line
         if p1.x < p2.x:
             start, end = p1, p2
         else:
             start, end = p2, p1
-        slope = (p1.y - p2.y)/(p1.x - p2.x)
+        slope = (p1.y - p2.y) / (p1.x - p2.x)
         if slope == 1:
-            diagonal_points.extend(Point(start.x + o, start.y + o) for o in range(end.x - start.x + 1))
+            diagonal_points.extend(
+                Point(start.x + o, start.y + o) for o in range(end.x - start.x + 1)
+            )
         else:
-            diagonal_points.extend(Point(start.x + o, start.y - o) for o in range(end.x - start.x + 1))
+            diagonal_points.extend(
+                Point(start.x + o, start.y - o) for o in range(end.x - start.x + 1)
+            )
     return vertical_points, horizontal_points, diagonal_points
 
 
@@ -75,7 +87,8 @@ def part2(inpt: str):
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)

@@ -45,7 +45,8 @@ def part2(inpt: str):
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)

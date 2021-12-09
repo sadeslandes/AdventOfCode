@@ -5,7 +5,9 @@ from typing import Dict, List
 
 def build_signal_map(input_signals: List[frozenset]) -> Dict[frozenset, str]:
     """Returns mapping from input signal to display value"""
-    signal_map: Dict[frozenset, str] = dict()  # mapping from input signal (as a set) -> display value (as a str)
+    signal_map: Dict[
+        frozenset, str
+    ] = dict()  # mapping from input signal (as a set) -> display value (as a str)
     display_map: Dict[str, frozenset] = dict()  # reverse mapping of signal_map
     unknown_signals = set(input_signals)
     # collection of display value and a rule for determining which signal corresponds with the display value
@@ -35,10 +37,17 @@ def build_signal_map(input_signals: List[frozenset]) -> Dict[frozenset, str]:
 def part1(inpt: str):
     inpt_lines = inpt.splitlines()
     counter = 0
-    unique_digit_len = {2, 3, 4, 7}  # corresponds with # of segments used to display 1, 7, 4, 8 respectively
+    unique_digit_len = {
+        2,
+        3,
+        4,
+        7,
+    }  # corresponds with # of segments used to display 1, 7, 4, 8 respectively
     for line in inpt_lines:
         _, output_values = line.split("|")
-        counter += len([v for v in output_values.strip().split() if len(v) in unique_digit_len])
+        counter += len(
+            [v for v in output_values.strip().split() if len(v) in unique_digit_len]
+        )
     return counter
 
 
@@ -47,15 +56,18 @@ def part2(inpt: str):
     inpt_lines = inpt.splitlines()
     result = 0
     for line in inpt_lines:
-        input_signals, output_values = ([frozenset(s) for s in p.strip().split()] for p in line.split("|"))
+        input_signals, output_values = (
+            [frozenset(s) for s in p.strip().split()] for p in line.split("|")
+        )
         decoder = build_signal_map(input_signals)
-        result += int(''.join(decoder[v] for v in output_values))
+        result += int("".join(decoder[v] for v in output_values))
     return result
 
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)

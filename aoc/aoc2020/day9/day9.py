@@ -15,7 +15,7 @@ def sum_exists(numbers, target):
 def part1(inpt: str):
     numbers = [int(n) for n in inpt.splitlines()]
     for offset in range(len(numbers) - PREAMBLE_LEN):
-        subset = numbers[offset:PREAMBLE_LEN + offset]
+        subset = numbers[offset: PREAMBLE_LEN + offset]
         target = numbers[PREAMBLE_LEN + offset]
         if not sum_exists(subset, target):
             return target
@@ -33,7 +33,8 @@ def part2(inpt: str):
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)

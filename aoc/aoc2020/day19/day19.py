@@ -52,7 +52,7 @@ def part2(inpt: str):
     ###
     rules_raw, messages = (g.splitlines() for g in inpt.split("\n\n"))
     rules = parse_rules(rules_raw)
-    if '42' not in rules or '31' not in rules:
+    if "42" not in rules or "31" not in rules:
         return None
     rule42_re = f"(?:{'|'.join(rules['42'])})"
     rule31_re = f"(?:{'|'.join(rules['31'])})"
@@ -74,7 +74,8 @@ def part2(inpt: str):
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)

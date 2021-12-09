@@ -1,9 +1,7 @@
 from time import perf_counter
 
 
-__all__ = [
-    "Timer"
-]
+__all__ = ["Timer"]
 
 
 class Timer:
@@ -19,6 +17,7 @@ class Timer:
             color = Timer.__red if elapsed > 10 else Timer.__green
             print(f"{color}Executed in {elapsed:.4f}s{Timer.__clear}")
             return result
+
         return wrapper
 
     def __enter__(self):

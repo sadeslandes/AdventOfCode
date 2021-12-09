@@ -14,6 +14,7 @@ def num_fish_spawned(curr_day, days_until_spawn, max_day):
         for n in range(start_day + 1, max_day + 1, _spawn_period):
             counter += 1 + _num_fish_spawned(n + _initial_spawn_delay, end_day)
         return counter
+
     return _num_fish_spawned(curr_day + days_until_spawn, max_day)
 
 
@@ -31,7 +32,8 @@ def part2(inpt: str):
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)

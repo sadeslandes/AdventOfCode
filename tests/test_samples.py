@@ -29,16 +29,13 @@ def test_example(input_file, request):
     if year == 2020 and day == 9:
         # special case because PREAMBLE_LEN differs between sample and actual
         from aoc.aoc2020.day9 import day9
+
         day9.PREAMBLE_LEN = 5
 
     # WHEN
     skip_part1, skip_part2 = part1_answer.startswith("-"), part2_answer.startswith("-")
     part1, part2 = solver(
-        year,
-        day,
-        input_data,
-        skip_part1=skip_part1,
-        skip_part2=skip_part2
+        year, day, input_data, skip_part1=skip_part1, skip_part2=skip_part2
     )
 
     # THEN

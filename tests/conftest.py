@@ -19,7 +19,7 @@ def pytest_configure(config):
 
 def pytest_collection_modifyitems(items):
     for item in items:
-        if hasattr(item, 'callspec'):
+        if hasattr(item, "callspec"):
             year, day, _ = item.callspec.id.split("_")
             item.add_marker(getattr(pytest.mark, make_year_marker(year)))
             item.add_marker(getattr(pytest.mark, make_day_marker(day)))

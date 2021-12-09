@@ -53,25 +53,32 @@ def get_score(board: Board, winning_num: int):
 
 # Part 1
 def part1(inpt: str):
-    nums, *boards = inpt.split('\n\n')
-    nums = map(int, nums.split(','))
-    boards = [[[BingoNumber(int(n)) for n in row.split()] for row in board.splitlines()] for board in boards]
+    nums, *boards = inpt.split("\n\n")
+    nums = map(int, nums.split(","))
+    boards = [
+        [[BingoNumber(int(n)) for n in row.split()] for row in board.splitlines()]
+        for board in boards
+    ]
     winning_board, winning_num = next(play_bingo(nums, boards))
     return get_score(winning_board, winning_num)
 
 
 # Part 2
 def part2(inpt: str):
-    nums, *boards = inpt.split('\n\n')
-    nums = map(int, nums.split(','))
-    boards = [[[BingoNumber(int(n)) for n in row.split()] for row in board.splitlines()] for board in boards]
+    nums, *boards = inpt.split("\n\n")
+    nums = map(int, nums.split(","))
+    boards = [
+        [[BingoNumber(int(n)) for n in row.split()] for row in board.splitlines()]
+        for board in boards
+    ]
     winning_board, winning_num = list(play_bingo(nums, boards))[-1]
     return get_score(winning_board, winning_num)
 
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)

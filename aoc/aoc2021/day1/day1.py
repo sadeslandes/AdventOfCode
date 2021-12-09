@@ -20,7 +20,7 @@ def part2(inpt: str):
     increase_count = 0
     depths = [int(i) for i in inpt_lines]
     for i in range(2, len(depths)):
-        curr_sum = sum(depths[i-2:i+1])
+        curr_sum = sum(depths[i - 2: i + 1])
         if prev_sum is not None and curr_sum > prev_sum:
             increase_count += 1
         prev_sum = curr_sum
@@ -29,7 +29,8 @@ def part2(inpt: str):
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)

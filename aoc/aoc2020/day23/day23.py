@@ -37,7 +37,7 @@ def make_cups_list(inpt):
 
 def iterate_cups(cups):
     idx = 0
-    for _ in range(len(cups)-1):
+    for _ in range(len(cups) - 1):
         yield cups[idx]
         idx = cups[idx]
 
@@ -82,7 +82,8 @@ def part2(inpt: str):
 
 if __name__ == "__main__":
     from aoc.utils import Timer
-    with open(path.join(path.dirname(__file__), 'input.txt')) as f:
+
+    with open(path.join(path.dirname(__file__), "input.txt")) as f:
         data = f.read()
     with Timer() as t1:
         p1 = part1(data)
