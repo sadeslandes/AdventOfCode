@@ -20,7 +20,7 @@ def part2(inpt: str):
     increase_count = 0
     depths = [int(i) for i in inpt_lines]
     for i in range(2, len(depths)):
-        curr_sum = sum(depths[i - 2: i + 1])
+        curr_sum = sum(depths[i - 2 : i + 1])
         if prev_sum is not None and curr_sum > prev_sum:
             increase_count += 1
         prev_sum = curr_sum

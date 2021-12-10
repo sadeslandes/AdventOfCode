@@ -15,7 +15,7 @@ def sum_exists(numbers, target):
 def part1(inpt: str):
     numbers = [int(n) for n in inpt.splitlines()]
     for offset in range(len(numbers) - PREAMBLE_LEN):
-        subset = numbers[offset: PREAMBLE_LEN + offset]
+        subset = numbers[offset : PREAMBLE_LEN + offset]
         target = numbers[PREAMBLE_LEN + offset]
         if not sum_exists(subset, target):
             return target

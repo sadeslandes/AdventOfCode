@@ -20,7 +20,7 @@ def apply_mask_to_addr(mask, addr):
     addr = f"{addr:036b}"
     for i, c in enumerate(mask):
         if c == "1" or c == "X":
-            addr = addr[:i] + c + addr[i + 1:]
+            addr = addr[:i] + c + addr[i + 1 :]
 
     def _generate_permutations(string):
         if string.count("X") == 0:

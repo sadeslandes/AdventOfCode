@@ -15,7 +15,7 @@ def tokenize(expr):
         elif c == "(":
             group_count -= 1
         elif c in OPERATIONS and group_count == 0:
-            return (expr[:idx], expr[idx + 1:], OPERATIONS[c])
+            return (expr[:idx], expr[idx + 1 :], OPERATIONS[c])
     # is literal or grouped expression
     return (expr, None, None)
 
