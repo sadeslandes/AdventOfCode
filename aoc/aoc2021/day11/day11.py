@@ -43,13 +43,21 @@ def simulate_step(grid: List[List[int]]) -> int:
 
 # Part 1
 def part1(inpt: str):
-    grid = {(x, y): int(n) for y, row in enumerate(inpt.splitlines()) for x, n in enumerate(row)}
+    grid = {
+        (x, y): int(n)
+        for y, row in enumerate(inpt.splitlines())
+        for x, n in enumerate(row)
+    }
     return sum(simulate_step(grid) for _ in range(100))
 
 
 # Part 2
 def part2(inpt: str):
-    grid = {(x, y): int(n) for y, row in enumerate(inpt.splitlines()) for x, n in enumerate(row)}
+    grid = {
+        (x, y): int(n)
+        for y, row in enumerate(inpt.splitlines())
+        for x, n in enumerate(row)
+    }
     steps = 1
     while simulate_step(grid) != 100:
         steps += 1
