@@ -3,6 +3,7 @@ from os import path
 from dataclasses import dataclass
 from enum import Enum, auto
 from typing import Iterable
+from advent_of_code_ocr import convert_6
 
 
 class FoldAxis(Enum):
@@ -68,15 +69,14 @@ def do_fold(dots: Iterable[Dot], fold: Fold) -> None:
     return new_dots
 
 
-def print_dots(dots: Iterable[Dot]):
+def stringify_dots(dots: Iterable[Dot]) -> str:
     width = max(dot.x for dot in dots) + 1
     height = max(dot.y for dot in dots) + 1
     line = ["."] * width
     lines = [list(line) for _ in range(height)]
     for dot in dots:
         lines[dot.y][dot.x] = "#"
-    for line in lines:
-        print("".join(line))
+    return "\n".join("".join(line) for line in lines)
 
 
 # Part 1
@@ -91,8 +91,7 @@ def part2(inpt: str):
     dots, folds = parse_input(inpt)
     for fold in folds:
         dots = do_fold(dots, fold)
-    print_dots(dots)
-    return "JGAJEFKU"
+    return convert_6(stringify_dots(dots))
 
 
 if __name__ == "__main__":
