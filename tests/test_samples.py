@@ -1,8 +1,9 @@
 import pathlib
-import pytest
-from aoc import solver
 from sys import gettrace
 
+import pytest
+
+from aoc import solver
 
 here = pathlib.Path(__file__).parent
 input_files = sorted(here.glob("20*/*/*.txt"))

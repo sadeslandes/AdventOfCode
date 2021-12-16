@@ -1,8 +1,9 @@
 """https://adventofcode.com/2021/day/13"""
-from os import path
 from dataclasses import dataclass
 from enum import Enum, auto
+from os import path
 from typing import Iterable
+
 from advent_of_code_ocr import convert_6
 
 

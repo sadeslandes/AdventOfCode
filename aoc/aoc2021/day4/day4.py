@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/4"""
-from os import path
 from dataclasses import dataclass
+from os import path
 from typing import List
 
 

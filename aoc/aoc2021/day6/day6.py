@@ -1,7 +1,7 @@
 """https://adventofcode.com/2021/day/6"""
-from os import path
 from collections import Counter
 from functools import cache
+from os import path
 
 _initial_spawn_delay = 8
 _spawn_period = 7

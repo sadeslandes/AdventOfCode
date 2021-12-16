@@ -1,7 +1,7 @@
 """https://adventofcode.com/2021/day/11"""
+from itertools import product
 from os import path
 from typing import List
-from itertools import product
 
 
 def get_neighbors(p):

@@ -1,8 +1,8 @@
 """https://adventofcode.com/2021/day/9"""
-from os import path
 from dataclasses import dataclass
-from typing import Tuple, List
 from math import prod
+from os import path
+from typing import List, Tuple
 
 _offsets = [(0, -1), (0, 1), (1, 0), (-1, 0)]
 

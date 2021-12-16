@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/12"""
-from os import path
 from collections import defaultdict
+from os import path
 
 
 def get_paths(graph, start, end, repeats=[]):

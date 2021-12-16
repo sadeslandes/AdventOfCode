@@ -1,8 +1,8 @@
 """https://adventofcode.com/2021/day/5"""
-from os import path
-from dataclasses import dataclass
-from typing import List, Tuple
 from collections import Counter
+from dataclasses import dataclass
+from os import path
+from typing import List, Tuple
 
 
 @dataclass(frozen=True)

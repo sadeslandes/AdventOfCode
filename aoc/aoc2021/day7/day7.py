@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/7"""
-from os import path
 from functools import cache
+from os import path
 
 
 @cache

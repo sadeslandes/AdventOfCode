@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/14"""
-from os import path
 from collections import Counter
+from os import path
 
 
 class Polymer:

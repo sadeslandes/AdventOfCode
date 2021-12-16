@@ -1,6 +1,5 @@
 from time import perf_counter
 
-
 __all__ = ["Timer"]
 
 

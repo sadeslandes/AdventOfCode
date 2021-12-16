@@ -1,5 +1,6 @@
-import pytest
 import datetime
+
+import pytest
 
 
 def make_year_marker(year):
