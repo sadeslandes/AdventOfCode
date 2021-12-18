@@ -1,18 +1,13 @@
-from collections import defaultdict, deque
 from os import path
 
 
 def find_nth_spoken_word(inpt, target):
-    spoken = defaultdict(lambda: deque(maxlen=2))
-    last_spoken = None
-    for i in range(target):
-        if i < len(inpt):
-            last_spoken = inpt[i]
-        elif last_spoken not in spoken or len(spoken[last_spoken]) < 2:
-            last_spoken = 0
-        else:
-            last_spoken = spoken[last_spoken][1] - spoken[last_spoken][0]
-        spoken[last_spoken].append(i)
+    spoken = {n: i + 1 for i, n in enumerate(inpt[:-1])}
+    last_spoken = inpt[-1]
+    for turn in range(len(inpt), target):
+        next_spoken = turn - spoken[last_spoken] if last_spoken in spoken else 0
+        spoken[last_spoken] = turn
+        last_spoken = next_spoken
     return last_spoken
 
 
