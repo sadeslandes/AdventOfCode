@@ -2,8 +2,8 @@
 https://adventofcode.com/2021/day/17
 credit to https://github.com/charelF/AdventOfCode/blob/ac1a9b7349c40db9db8cc616609a4032f7f19490/aoc.ipynb for explanations
 """
-from os import path
 from dataclasses import dataclass
+from os import path
 from typing import Iterator
 
 
@@ -24,11 +24,11 @@ def throw(vx: int, vy: int) -> Iterator[Point]:
         yield Point(x, y)
 
 
-def evaluate_throw(throw: Iterator[Point], target: tuple[Point, Point]) -> int:
+def evaluate_throw(vx: int, vy: int, target: tuple[Point, Point]) -> int:
     """Determines whether a point in the thrown arc lands in the target area. Returns the max height of the arc"""
     max_height = 0
     top_left, bottom_right = target
-    for point in throw:
+    for point in throw(vx, vy):
         max_height = max(max_height, point.y)
         # if we are past the target area then stop
         if point.x > bottom_right.x or point.y < bottom_right.y:
@@ -78,7 +78,7 @@ def part2(inpt: str):
         for y in range(
             ymax, 1 - ymax
         ):  # anything lower overshoots on first step, higher and target is overshot coming down from apex
-            height, dist = evaluate_throw(throw(x, y), target)
+            height = evaluate_throw(x, y, target)
             if height is not None:
                 count += 1
     return count
