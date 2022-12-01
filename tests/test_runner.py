@@ -16,7 +16,7 @@ def get_id(input_file):
 
 @pytest.mark.timeout(timeout)
 @pytest.mark.parametrize("input_file", input_files, ids=get_id)
-def test_example(input_file, request):
+def test_run(input_file, request):
     # GIVEN
     lines = input_file.read_text().splitlines()
     if len(lines) < 4:
