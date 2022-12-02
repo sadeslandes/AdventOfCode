@@ -11,18 +11,6 @@ OUTCOME_SCORES = {
     "L": 0,
     "D": 3,
     "W": 6,
-    "X": 0,
-    "Y": 3,
-    "Z": 6,
-}
-
-HAND_MAP = {
-    "A": "R",
-    "B": "P",
-    "C": "S",
-    "X": "R",
-    "Y": "P",
-    "Z": "S",
 }
 
 HANDS = ("S", "R", "P")
@@ -38,9 +26,9 @@ def judge_hand(opponent, you):
 
 
 def derive_hand(opponent, outcome):
-    if outcome == "Y":  # draw
+    if outcome == "D":  # draw
         return opponent
-    elif outcome == "X":  # lose
+    elif outcome == "L":  # lose
         return HANDS[(HAND_SCORES[opponent] - 1) % 3]
     else:  # win
         return HANDS[(HAND_SCORES[opponent] + 1) % 3]
@@ -48,24 +36,21 @@ def derive_hand(opponent, outcome):
 
 # Part 1
 def part1(inpt: str):
-    inpt_lines = inpt.splitlines()
+    trans_table = str.maketrans("ABCXYZ", "RPSRPS", " ")
+    inpt_lines = inpt.translate(trans_table).splitlines()
     total = 0
-    for line in inpt_lines:
-        opponent, you = [HAND_MAP[x] for x in line.split()]
+    for opponent, you in inpt_lines:
         total += OUTCOME_SCORES[judge_hand(opponent, you)] + HAND_SCORES[you]
     return total
 
 
 # Part 2
 def part2(inpt: str):
-    inpt_lines = inpt.splitlines()
+    trans_table = str.maketrans("ABCXYZ", "RPSLDW", " ")
+    inpt_lines = inpt.translate(trans_table).splitlines()
     total = 0
-    for line in inpt_lines:
-        opponent, outcome = line.split()
-        total += (
-            OUTCOME_SCORES[outcome]
-            + HAND_SCORES[derive_hand(HAND_MAP[opponent], outcome)]
-        )
+    for opponent, outcome in inpt_lines:
+        total += OUTCOME_SCORES[outcome] + HAND_SCORES[derive_hand(opponent, outcome)]
     return total
 
 
