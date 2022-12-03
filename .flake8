@@ -3,8 +3,8 @@
 # rather than using the flake8 default of 79:
 max-line-length = 88
 extend-ignore =
-    E203, # See https://github.com/PyCQA/pycodestyle/issues/373
-    E501, # Complains about comments
+    E203,
+    E501,
 exclude =
     test/*,
     __pycache__,
