@@ -1,5 +1,4 @@
 """https://adventofcode.com/2022/day/5"""
-from inspect import stack
 from os import path
 from collections import defaultdict
 import re
@@ -13,12 +12,10 @@ def parse_input(inpt: str):
 def parse_stacks(crates: str):
     stacks = defaultdict(list)
     idx_map = dict()
-    stack_count = 0
     for line in reversed(crates.splitlines()):
         for i, c in enumerate(line):
             if c.isdecimal():
-                stack_count += 1
-                idx_map[i] = stack_count
+                idx_map[i] = int(c)
             elif c.isalpha():
                 stacks[idx_map[i]].append(c)
     return stacks
