@@ -1,7 +1,7 @@
 """https://adventofcode.com/2022/day/5"""
-from os import path
-from collections import defaultdict
 import re
+from collections import defaultdict
+from os import path
 
 
 def parse_input(inpt: str):

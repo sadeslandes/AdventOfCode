@@ -1,9 +1,8 @@
 """https://adventofcode.com/2022/day/3"""
 import string
-
-from os import path
-from operator import iand
 from functools import reduce
+from operator import iand
+from os import path
 
 PRIORITY = {c: i + 1 for i, c in enumerate(string.ascii_letters)}
 
