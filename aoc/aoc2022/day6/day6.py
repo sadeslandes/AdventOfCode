@@ -1,18 +1,32 @@
 """https://adventofcode.com/2022/day/6"""
+from collections import deque
+from itertools import islice
 from os import path
 
 
 # Part 1
 def part1(inpt: str):
-    for pos, chunk in ((i + 4, inpt[i : i + 4]) for i in range(len(inpt) - 3)):
-        if len(set(chunk)) == 4:
+    window_size = 4
+    itr = iter(inpt)
+    window = deque(islice(itr, window_size - 1), maxlen=window_size)
+    pos = window_size - 1
+    for c in itr:
+        pos += 1
+        window.append(c)
+        if len(set(window)) == window_size:
             return pos
 
 
 # Part 2
 def part2(inpt: str):
-    for pos, chunk in ((i + 14, inpt[i : i + 14]) for i in range(len(inpt) - 13)):
-        if len(set(chunk)) == 14:
+    window_size = 14
+    itr = iter(inpt)
+    window = deque(islice(itr, window_size - 1), maxlen=window_size)
+    pos = window_size - 1
+    for c in itr:
+        pos += 1
+        window.append(c)
+        if len(set(window)) == window_size:
             return pos
 
 
