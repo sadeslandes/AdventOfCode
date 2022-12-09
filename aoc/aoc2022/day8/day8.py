@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from os import path
-from typing import Iterator, Tuple
+from typing import Iterator, Set, Tuple
 
 
 @dataclass(frozen=True)
@@ -26,9 +26,7 @@ def generate_lines_of_sight(grid: Tuple[Tuple[Tree]]) -> Iterator[Tuple[Tree]]:
     yield from iter(zip(*reversed(grid)))  # viewed from bottom
 
 
-# Part 1
-def part1(inpt: str):
-    grid = make_grid(inpt)
+def get_visible_trees(grid: Tuple[Tuple[Tree]]) -> Set[Tree]:
     seen = set()
     for los in generate_lines_of_sight(grid):
         max_height = -1
@@ -36,42 +34,51 @@ def part1(inpt: str):
             if tree.height > max_height:
                 max_height = tree.height
                 seen.add(tree)
-    return len(seen)
+    return seen
+
+
+# Part 1
+def part1(inpt: str):
+    grid = make_grid(inpt)
+    return len(get_visible_trees(grid))
 
 
 # Part 2
 def part2(inpt: str):
     grid = make_grid(inpt)
-    max_score = -1
     num_rows = len(grid)
     num_cols = len(grid[0])
-    for y in range(num_rows):
-        for x in range(num_cols):
-            tree_height = grid[y][x].height
-            up, down, left, right = 0, 0, 0, 0
-            # look up
-            for dy in range(y - 1, -1, -1):
-                up += 1
-                if grid[dy][x].height >= tree_height:
-                    break
-            # look down
-            for dy in range(y + 1, num_rows):
-                down += 1
-                if grid[dy][x].height >= tree_height:
-                    break
-            # look left
-            for dx in range(x - 1, -1, -1):
-                left += 1
-                if grid[y][dx].height >= tree_height:
-                    break
-            # look right
-            for dx in range(x + 1, num_cols):
-                right += 1
-                if grid[y][dx].height >= tree_height:
-                    break
+    max_score = -1
+    for tree in get_visible_trees(grid):
+        x, y = tree.position
+        # ignore tees on the edge
+        if y == 0 or y == num_rows - 1 or x == 0 or x == num_cols - 1:
+            continue
+        tree_height = grid[y][x].height
+        up, down, left, right = 0, 0, 0, 0
+        # look up
+        for dy in range(y - 1, -1, -1):
+            up += 1
+            if grid[dy][x].height >= tree_height:
+                break
+        # look down
+        for dy in range(y + 1, num_rows):
+            down += 1
+            if grid[dy][x].height >= tree_height:
+                break
+        # look left
+        for dx in range(x - 1, -1, -1):
+            left += 1
+            if grid[y][dx].height >= tree_height:
+                break
+        # look right
+        for dx in range(x + 1, num_cols):
+            right += 1
+            if grid[y][dx].height >= tree_height:
+                break
 
-            if (score := up * down * left * right) > max_score:
-                max_score = score
+        if (score := up * down * left * right) > max_score:
+            max_score = score
     return max_score
 
 
