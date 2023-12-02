@@ -13,8 +13,7 @@ class Timer:
             t1 = perf_counter_ns()
             result = func(*args, **kwargs)
             elapsed = perf_counter_ns() - t1
-            color = Timer.__red if elapsed > 10 else Timer.__green
-            print(f"{color}Executed in {elapsed:.4f}s{Timer.__clear}")
+            print(f"{func.__name__} executed in {elapsed/1e9:.6f}s")
             return result
 
         return wrapper

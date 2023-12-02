@@ -2,7 +2,6 @@ import pathlib
 from sys import gettrace
 
 import pytest
-
 from aoc import solver
 
 here = pathlib.Path(__file__).parent
@@ -32,6 +31,13 @@ def test_run(input_file, request):
         from aoc.aoc2020.day9 import day9
 
         day9.PREAMBLE_LEN = 5
+
+    if year == 2022 and day == 15:
+        # special case because PREAMBLE_LEN differs between sample and actual
+        from aoc.aoc2022.day15 import day15
+
+        day15.TARGET_ROW = 10
+        day15.SEARCH_SPACE = 20
 
     # WHEN
     skip_part1, skip_part2 = part1_answer.startswith("-"), part2_answer.startswith("-")
