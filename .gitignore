@@ -141,3 +141,7 @@ cython_debug/
 .vscode/
 
 SESSION.COOKIE
+
+[Oo]bj/
+[Bb]in/
+*.suo
