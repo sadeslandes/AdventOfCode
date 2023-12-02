@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZkaPRllQtM6h9jf4KbYeV3qxYD2ZzWubZDQwfzQ9B/jWiDovZkuorSzwp5ixP2Yu/7EJqC2zGmIMukF3msMsbQ==",
+  "success": true,
+  "projectFilePath": "/home/sadeslandes/AdventOfCode/dotnet/tests/AoC.Tests/AoC.Tests.csproj",
+  "expectedPackageFiles": [
+    "/home/sadeslandes/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/litedb/5.0.17/litedb.5.0.17.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/mazharenko.aocagent/2.0.0/mazharenko.aocagent.2.0.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/microsoft.codecoverage/17.6.0/microsoft.codecoverage.17.6.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/microsoft.net.test.sdk/17.6.0/microsoft.net.test.sdk.17.6.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/microsoft.testplatform.objectmodel.17.6.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/microsoft.testplatform.testhost/17.6.0/microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/nuget.frameworks/5.11.0/nuget.frameworks.5.11.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/nunit/3.13.3/nunit.3.13.3.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/nunit.analyzers/3.6.1/nunit.analyzers.3.6.1.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/nunit3testadapter/4.2.1/nunit3testadapter.4.2.1.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/spectre.console/0.46.0/spectre.console.0.46.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/system.reflection.metadata/1.6.0/system.reflection.metadata.1.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

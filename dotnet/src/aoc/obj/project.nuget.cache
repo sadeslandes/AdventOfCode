@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "3K0VMlhjHJ9XnfwngXS8rYe9B82GuvnxX39Uc3HAt97UAcsdV6slogHThiPSXQ+VamCIRz/q+cP1mvTXzhX1NQ==",
+  "success": true,
+  "projectFilePath": "/home/sadeslandes/AdventOfCode/dotnet/src/aoc/aoc.csproj",
+  "expectedPackageFiles": [
+    "/home/sadeslandes/.nuget/packages/litedb/5.0.17/litedb.5.0.17.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/mazharenko.aocagent/2.0.0/mazharenko.aocagent.2.0.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/spectre.console/0.46.0/spectre.console.0.46.0.nupkg.sha512",
+    "/home/sadeslandes/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512"
+  ],
+  "logs": []
+}
