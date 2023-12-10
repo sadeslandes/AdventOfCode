@@ -6,8 +6,27 @@ internal partial class Day01
 {
     private static int ExtractFirstLastNumbers(string input)
     {
-        var numbers = input.Where(c => char.IsNumber(c));
-        return int.Parse(string.Concat(numbers.First(), numbers.Last()));
+        char first = '\0';
+        char last = '\0';
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (char.IsNumber(input[i]))
+            {
+                first = input[i];
+                break;
+            }
+        }
+
+        for (int j = input.Length-1; j >= 0; j--)
+        {
+            if (char.IsNumber(input[j]))
+            {
+                last = input[j];
+                break;
+            }
+        }
+
+        return int.Parse(string.Concat(first, last));
     }
 
     private static string ReplaceTextWithNumber(string input)
