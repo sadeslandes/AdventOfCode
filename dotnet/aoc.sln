@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -10,6 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6DFBE5A9-4974-4CFD-899C-D8A02AEC394A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoC.Tests", "tests\AoC.Tests\AoC.Tests.csproj", "{470B7545-BB2D-4492-AE81-84C6E83F8F82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "profiler", "profiler", "{5775F386-6CC0-40FF-AAA5-94DB086B74F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoC.Profiler", "profiler\AoC.Profiler\AoC.Profiler.csproj", "{7BA8F99A-5D80-4B0D-9855-23135BE7BAE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,9 +32,14 @@ Global
 		{470B7545-BB2D-4492-AE81-84C6E83F8F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{470B7545-BB2D-4492-AE81-84C6E83F8F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{470B7545-BB2D-4492-AE81-84C6E83F8F82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA8F99A-5D80-4B0D-9855-23135BE7BAE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA8F99A-5D80-4B0D-9855-23135BE7BAE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA8F99A-5D80-4B0D-9855-23135BE7BAE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA8F99A-5D80-4B0D-9855-23135BE7BAE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{82CD8D3B-D5F0-472C-9954-5FAFCF789B1E} = {C9376883-178C-44E6-8DA9-3D91689628FE}
 		{470B7545-BB2D-4492-AE81-84C6E83F8F82} = {6DFBE5A9-4974-4CFD-899C-D8A02AEC394A}
+		{7BA8F99A-5D80-4B0D-9855-23135BE7BAE7} = {5775F386-6CC0-40FF-AAA5-94DB086B74F0}
 	EndGlobalSection
 EndGlobal

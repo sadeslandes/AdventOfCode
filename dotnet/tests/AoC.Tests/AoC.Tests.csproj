@@ -25,7 +25,10 @@
         <ProjectReference Include="..\..\src\aoc\aoc.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="inputs\**\*.txt" CopyToOutputDirectory="PreserveNewest"/>
+        <Inputs Include="..\..\inputs\**\*.txt"/>
     </ItemGroup>
+    <Target Name="CopyInputs" AfterTargets="Build">
+        <Copy SourceFiles="@(Inputs)" DestinationFolder="$(TargetDir)/inputs"/>
+    </Target>
 
 </Project>
