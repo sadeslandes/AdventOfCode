@@ -1,0 +1,124 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run sample",
+            "type": "shell",
+            "command": "/home/sadeslandes/AdventOfCode/run_sample.sh",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Get Input",
+            "type": "shell",
+            "command": "curl",
+            "args": [
+                "https://adventofcode.com/${input:aoc-year}/day/${input:aoc-day}/input",
+                "--cookie",
+                "session=$AOC_SESSION",
+                "-o",
+                "${workspaceFolder}/dotnet/inputs/input${input:aoc-day}.txt",
+                "--silent"
+            ],
+            "options": {
+                "env": {
+                    "AOC_SESSION": "53616c7465645f5fefc60a89628e1a124832cf0784928e8cc83456456dd284348b9f66de57b81348ad0e8f185733e52e6af61872bc777a973de829652603799a"
+                }
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": ".NET Test 2023",
+            "command": "dotnet test --filter Input --logger:\"console;verbosity=normal\"",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/dotnet"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "AoC Profiler Build",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/dotnet/profiler/AoC.Profiler/AoC.Profiler.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "type": "process",
+            "suppressTaskName": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "AoC Profiler",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/dotnet/profiler/AoC.Profiler/bin/Release/net8.0/AoC.Profiler.dll",
+                "-y",
+                "${input:aoc-year}",
+                "-d",
+                "${input:aoc-day}",
+                "-p",
+                "${input:aoc-part}",
+                "-n",
+                "${input:aoc-repeat}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/dotnet"
+            },
+            "dependsOn": [
+                "AoC Profiler Build"
+            ],
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "aoc-year",
+            "type": "pickString",
+            "default": "2023",
+            "options": ["2023"],
+            "description": "Year"
+        },
+        {
+            "id": "aoc-day",
+            "type": "pickString",
+            "default": "all",
+            "options": ["all","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"],
+            "description": "Day"
+        },
+        {
+            "id": "aoc-part",
+            "type": "pickString",
+            "default": "all",
+            "options": ["all","1","2"],
+            "description": "Part"
+        },
+        {
+            "id": "aoc-repeat",
+            "type": "promptString",
+            "default": "1000",
+            "description": "Number of trials"
+        },
+    ]
+}
